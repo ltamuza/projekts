@@ -12,6 +12,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
     <body>
        <h1>Gaidot dzimšanas dienu...</h1>
         <hr>
+
+        <p>Ievadi pilnu datumu, kad Tev būs NĀKAMĀ dzimšanas diena</p>
+        
         <form action="/action_page.php">
             <label for="gads">Gads:</label><br> 
             <input type="text" id="gads" name="gads" <br> 
@@ -26,6 +29,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
             <label for="poga">Aprēķināt dienu skaitu līdz dzimšanas diena</label><br> 
             <input type="submit" id="poga" name="poga" <br> 
         </form>
+
+
+<form>
+        <button type="button" onclick="calculateDays()">Aprēķināt dienu skaitu līdz dzimšanas dienai</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateDays() {
+            var birthDate = new Date("2025-05-15"); 
+            var currentDate = new Date();
+            var timeDifference = birthDate - currentDate;
+            var daysLeft = Math.ceil(timeDifference / (1000 * 3600 * 24)); 
+            
+            if (daysLeft < 0) {
+                birthDate.setFullYear(currentDate.getFullYear() + 1); 
+                timeDifference = birthDate - currentDate;
+                daysLeft = Math.ceil(timeDifference / (1000 * 3600 * 24));
+            }
+
+        
+            document.getElementById("result").innerText = "Līdz dzimšanas dienai ir " + daysLeft + " dienas!";
+        }
+    </script>
+
         
         <br> <br>
         
