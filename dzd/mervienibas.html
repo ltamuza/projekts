@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informācijas daudzuma mērvienības</title>
+    <style>
+        
+        body {
+            background-image: url('images/cipari.jpg'); 
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+
+        
+        form {
+            background-color: rgb(220, 220, 220); 
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        
+        form p {
+            font-size: 20px;
+        }
+
+        
+        input[type="text"] {
+            font-size: 18px;
+            padding: 8px;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        
+        button {
+            font-size: 18px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center; color: white;">Informācijas daudzuma mērvienības</h1>
+
+    <form>
+        <p>1. Ievadi vērtību bitos:</p>
+        <input type="text" id="biti" placeholder="Ievadi bitus">
+        <button type="button" onclick="calculateBits()">Aprēķināt bitus</button>
+
+        <p>2. Ievadi vērtību baudos:</p>
+        <input type="text" id="baudi" placeholder="Ievadi baudas">
+        <button type="button" onclick="calculateBaudi()">Aprēķināt baudas</button>
+
+        <p>3. Ievadi vērtību kilobaitos:</p>
+        <input type="text" id="kilobaiti" placeholder="Ievadi kilobaitus">
+        <button type="button" onclick="calculateKilobaiti()">Aprēķināt kilobaitus</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        
+        function calculateBits() {
+            var bits = 1024; 
+            document.getElementById("biti").value = bits + " bitu";
+        }
+
+        
+        function calculateBaudi() {
+            var baudi = 8; 
+            document.getElementById("baudi").value = baudi + " baudu";
+        }
+
+        
+        function calculateKilobaiti() {
+            var kilobaiti = 1024; 
+            document.getElementById("kilobaiti").value = kilobaiti + " kilobaitu";
+        }
+    </script>
+
+</body>
+</html>
