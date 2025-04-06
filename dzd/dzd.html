@@ -27,13 +27,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
             <br> 
             
             
-        </form>
 
-
-<form>
         <button type="button" onclick="calculateDays()">Aprēķināt dienu skaitu līdz dzimšanas dienai</button>
+            
     </form>
 
+        <br>
+        <br>
+        
     <p id="result"></p>
 
     <script>
@@ -44,7 +45,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
             var daysLeft = Math.ceil(timeDifference / (1000 * 3600 * 24)); 
             
             
-
+<br>
+    <br>
         
             document.getElementById("result").innerText = "Līdz svētkiem atlikušas" + daysLeft + " dienas:))";
         }
