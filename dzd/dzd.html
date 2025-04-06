@@ -22,12 +22,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
             <label for="menesis">Mēnesis:</label><br> 
             <input type="text" id="menesis" name="menesis" <br> 
             <br>
-            <label for="dienas">Dienas:</label><br> 
+            <label for="dienas">Diena:</label><br> 
             <input type="text" id="datums" name="datums" <br> 
             <br> 
             
-            <label for="poga">Aprēķināt dienu skaitu līdz dzimšanas diena</label><br> 
-            <input type="submit" id="poga" name="poga" <br> 
+            
         </form>
 
 
@@ -39,44 +38,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 
     <script>
         function calculateDays() {
-            var birthDate = new Date("2025-05-15"); 
+            var birthDate = new Date("id="gads"-id="menesis"-id="datums""); 
             var currentDate = new Date();
             var timeDifference = birthDate - currentDate;
             var daysLeft = Math.ceil(timeDifference / (1000 * 3600 * 24)); 
             
-            if (daysLeft < 0) {
-                birthDate.setFullYear(currentDate.getFullYear() + 1); 
-                timeDifference = birthDate - currentDate;
-                daysLeft = Math.ceil(timeDifference / (1000 * 3600 * 24));
-            }
+            
 
         
-            document.getElementById("result").innerText = "Līdz dzimšanas dienai ir " + daysLeft + " dienas!";
+            document.getElementById("result").innerText = "Līdz svētkiem atlikušas" + daysLeft + " dienas:))";
         }
     </script>
 
         
-        <br> <br>
-        
-        <a>Līdz svētkiem atlikušas</a>
-        
-        <form action="/action_page.php">
-            <label for="dienas"> </label> 
-            <input type="text" id="dienas"
-                   onclick="dienas()"> 
-            
-            <script> function dienas(){
-               
-            }
-                document.getElementById("gads").innerHTML
-                
-                
-                </script>
-            
-            <a> dienas :)) </a>  
-            
-        
-        
+       
         
         
     </body>
