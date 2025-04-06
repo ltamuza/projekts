@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informācijas daudzuma mērvienības</title>
+    <title>GB uz MB un MiB konvertētājs</title>
     <style>
-        
+
         body {
             background-image: url('images/cipari.jpg'); 
             background-size: cover;
@@ -18,7 +18,7 @@
             background-color: rgb(220, 220, 220); 
             padding: 20px;
             border-radius: 8px;
-            width: 80%;
+            width: 50%;
             margin: 0 auto;
         }
 
@@ -50,45 +50,50 @@
         button:hover {
             background-color: #45a049;
         }
+
+        
+        .output {
+            font-size: 18px;
+            padding: 8px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
 
-    <h1 style="text-align: center; color: white;">Informācijas daudzuma mērvienības</h1>
+    <h1 style="text-align: center; color: white;">GB uz MB un MiB konvertētājs</h1>
 
     <form>
-        <p>1. Ievadi vērtību bitos:</p>
-        <input type="text" id="biti" placeholder="Ievadi bitus">
-        <button type="button" onclick="calculateBits()">Aprēķināt bitus</button>
+        <p>Ievadi vērtību gigabaitos (GB):</p>
+        <input type="text" id="gb" placeholder="Ievadi gigabaitus">
 
-        <p>2. Ievadi vērtību baudos:</p>
-        <input type="text" id="baudi" placeholder="Ievadi baudas">
-        <button type="button" onclick="calculateBaudi()">Aprēķināt baudas</button>
+        <button type="button" onclick="convertGB()">Aprēķināt MB un MiB</button>
 
-        <p>3. Ievadi vērtību kilobaitos:</p>
-        <input type="text" id="kilobaiti" placeholder="Ievadi kilobaitus">
-        <button type="button" onclick="calculateKilobaiti()">Aprēķināt kilobaitus</button>
+        <div class="output">
+            <p>Megabaiti (MB): <span id="resultMB"></span></p>
+            <p>Mebibaiti (MiB): <span id="resultMiB"></span></p>
+        </div>
     </form>
-
-    <p id="result"></p>
 
     <script>
         
-        function calculateBits() {
-            var bits = 1024; 
-            document.getElementById("biti").value = bits + " bitu";
-        }
+        function convertGB() {
+    
+            var gbValue = document.getElementById("gb").value;
 
-        
-        function calculateBaudi() {
-            var baudi = 8; 
-            document.getElementById("baudi").value = baudi + " baudu";
-        }
+            
+            if (isNaN(gbValue) || gbValue === "") {
+                alert("Lūdzu ievadi skaitli!");
+                return;
+            }
 
-        
-        function calculateKilobaiti() {
-            var kilobaiti = 1024; 
-            document.getElementById("kilobaiti").value = kilobaiti + " kilobaitu";
+            
+            var mbValue = gbValue * 1024;  // 1 GB = 1024 MB
+            var mibValue = gbValue * 1024;  // 1 GB = 1024 MiB
+
+            
+            document.getElementById("resultMB").innerText = mbValue + " MB";
+            document.getElementById("resultMiB").innerText = mibValue + " MiB";
         }
     </script>
 
