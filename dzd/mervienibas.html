@@ -5,8 +5,7 @@
   <title>Informācijas daudzuma mērvienības</title>
   <style>
     body {
-      background-image: <img scr="images/cipari.jpg">; 
-      background-size: cover;
+      background-image: <img scr="images/cipari.jpg">;
       font-family: Times New Roman, serif;
     }
 
@@ -51,18 +50,27 @@
 
   <h1>Informācijas daudzuma mērvienības</h1>
 
-  <div class="kaste">
-    <input type="text" id="gb" value=""> GB = 
-    <br><br>
+  
+  <div class="rinda">
+  <input type="text" id="gb" value=""> GB =
+</div>
+<br>
 
-    <button onclick="parrekinatMB()">Izteikt megabaitos</button>
-    <input type="text" id="mbRezultats" readonly> <span class="izvade">MB</span>
-    <br>
+<div class="rinda">
+  <button onclick="parrekinatMB()">Izteikt megabaitos</button>
+  <input type="text" id="mbRezultats" readonly>
+  <span class="izvade">MB</span>
+</div>
+<br>
 
-    <button onclick="parrekinatMiB()">Izteikt mibibaitos</button>
-    <input type="text" id="mibRezultats" readonly> <span class="izvade">MiB</span>
-  </div>
+<div class="rinda">
+  <button onclick="parrekinatMiB()">Izteikt mibibaitos</button>
+  <input type="text" id="mibRezultats" readonly>
+  <span class="izvade">MiB</span>
+</div>
 
+
+  
   <script>
     function parrekinatMB() {
       let gb = parseFloat(document.getElementById('gb').value);
