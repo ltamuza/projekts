@@ -1,101 +1,78 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GB uz MB un MiB konvertētājs</title>
-    <style>
+  <meta charset="UTF-8">
+  <title>Informācijas daudzuma mērvienības</title>
+  <style>
+    body {
+      background-image: img scr="images/cipari.jjpg"; 
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
 
-        body {
-            background-image: img src="images/cipari.jpg"; 
-            background-size: cover;
-            background-position: center;
-            font-family: Arial, sans-serif;
-        }
+    h1 {
+      text-align: center;
+    }
 
-        
-        form {
-            background-color: rgb(220, 220, 220); 
-            padding: 20px;
-            border-radius: 8px;
-            width: 50%;
-            margin: 0 auto;
-        }
+    .kaste {
+      background-color: yellow;
+      padding: 20px;
+      width: 400px;
+      margin: 0 auto;
+    }
 
-        
-        form p {
-            font-size: 20px;
-        }
+    input[type="text"] {
+      padding: 5px;
+      width: 120px;
+    }
 
-        
-        input[type="text"] {
-            font-size: 18px;
-            padding: 8px;
-            width: 100%;
-            margin: 10px 0;
-        }
+    button {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      display: block;
+    }
 
-        
-        button {
-            font-size: 18px;
-            padding: 10px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            width: 100%;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        
-        .output {
-            font-size: 18px;
-            padding: 8px;
-            margin-top: 10px;
-        }
-    </style>
+    .izvade {
+      display: inline-block;
+      margin-left: 10px;
+    }
+  </style>
 </head>
 <body>
 
-    <h1 style="text-align: center; color: white;">GB uz MB un MiB konvertētājs</h1>
+  <h1>Informācijas daudzuma mērvienības</h1>
 
-    <form>
-        <p>Ievadi vērtību gigabaitos (GB):</p>
-        <input type="text" id="gb" placeholder="Ievadi gigabaitus">
+  <div class="kaste">
+    <input type="text" id="gb" value="2"> GB = 
+    <br><br>
 
-        <button type="button" onclick="convertGB()">Aprēķināt MB un MiB</button>
+    <button onclick="parrekinatMB()">Izteikt megabaitos</button>
+    <input type="text" id="mbRezultats" readonly> <span class="izvade">MB</span>
+    <br>
 
-        <div class="output">
-            <p>Megabaiti (MB): <span id="resultMB"></span></p>
-            <p>Mebibaiti (MiB): <span id="resultMiB"></span></p>
-        </div>
-    </form>
+    <button onclick="parrekinatMiB()">Izteikt mibibaitos</button>
+    <input type="text" id="mibRezultats" readonly> <span class="izvade">MiB</span>
+  </div>
 
-    <script>
-        
-        function convertGB() {
-    
-            var gbValue = document.getElementById("gb").value;
+  <script>
+    function parrekinatMB() {
+      let gb = parseFloat(document.getElementById('gb').value);
+      if (!isNaN(gb)) {
+        document.getElementById('mbRezultats').value = gb * 1000;
+      } else {
+        alert("Lūdzu ievadi skaitli!");
+      }
+    }
 
-            
-            if (isNaN(gbValue) || gbValue === "") {
-                alert("Lūdzu ievadi skaitli!");
-                return;
-            }
-
-            
-            var mbValue = gbValue * 1024;  // 1 GB = 1024 MB
-            var mibValue = gbValue * 1024;  // 1 GB = 1024 MiB
-
-            
-            document.getElementById("resultMB").innerText = mbValue + " MB";
-            document.getElementById("resultMiB").innerText = mibValue + " MiB";
-        }
-    </script>
+    function parrekinatMiB() {
+      let gb = parseFloat(document.getElementById('gb').value);
+      if (!isNaN(gb)) {
+        document.getElementById('mibRezultats').value = gb * 1024;
+      } else {
+        alert("Lūdzu ievadi skaitli!");
+      }
+    }
+  </script>
 
 </body>
 </html>
